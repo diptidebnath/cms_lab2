@@ -1,0 +1,18 @@
+/*
+Theme Name: Dipti Lab1
+Text Domain: diptilab1
+Version: 0.1
+Description: Custom made theme for lab1
+Tags: company, business, responsive
+Author: Dipti Rani Debnath
+Author URI: https://wordpress.org/
+Theme URI: https://wordpress.org/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+@media ( min-width: 768px ) {
+.intro-text-not-found{
+   margin-bottom: 200px;
+}
+}

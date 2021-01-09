@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /cms-1wp/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /cms-1wp/index.php [L]
+</IfModule>

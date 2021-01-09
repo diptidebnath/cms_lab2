@@ -1,0 +1,274 @@
+/*
+Theme Name: BDF School
+Text Domain: bdfscholl
+Version: 0.1
+Description: Custom made theme for BDS school
+Tags: school, responsive
+Author: Dipti Rani Debnath
+Author URI: https://wordpress.org/
+Theme URI: https://wordpress.org/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+
+html, body{
+    overflow-x: hidden;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.25;
+    padding: 0;
+    margin: 0;
+  }
+  
+  
+  header .topnav {
+    display: block;
+    background-color: #008cff;
+    overflow: hidden;
+    padding: 8px 12px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 9999;
+  position: relative;
+  }
+  
+  .logo {
+    color: #ffffff;
+    text-decoration: none;
+    float: left;
+  }
+  .logo span {
+    display: block;
+  }
+  .navitem {
+    float: right;
+    text-align: right;
+    width: 70%;
+    list-style-type: none;
+    
+  }
+  ul {
+    list-style-type: none;
+    
+  }
+  .navitem li {
+    display: inline;
+   
+  }
+  a {
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+   
+  }
+  .navitem li a {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .header {
+    background-image: url("image/kinderten-22.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 750px;
+    width: 100%;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    position: relative;
+    
+  }
+  .header::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: block;
+    background: rgba(0, 0,0,0.5);
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+  }
+  .header-text {
+    color: #ffffff;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    margin-top: 150px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .header-text h2 {
+    font-size: 45px;
+  }
+  .header-text p {
+    font-size: 25px;
+  }
+  .button {
+    background-color: #008cff;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 24px;
+    font-size: 20px;
+    
+  }
+  
+  /* header css ends here */
+  /* homepage css here */
+  .info-img1{
+    float: right;
+   padding: 50px;
+  }
+  .info-img2{
+    float: left;
+    padding: 50px;
+  }
+  .text-2 {
+    
+  }
+  .clearfix{
+    clear: both;
+  }
+  .blog-heading{
+  padding: 55px;
+  text-align: center;
+  font-size: 30px;
+  }
+  .summary-text{
+    padding: 50px;
+  }
+  
+  
+  .blog-post{
+    text-align: center;
+    padding: 30px 50px;
+    
+  }
+  .blog-post p{
+    text-align: left;
+    margin-bottom: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
+   
+  }
+  .blog-post img{
+    max-width: 350px;
+    height: 275px;
+    
+  }
+  
+  
+  .inner-container{
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 50px;
+  }
+  /* footer css starts here */
+  .one-third {
+    width: 33%;
+    float: left;
+    display: block;
+  }
+  
+  footer {
+    background-color: #008cff;
+    overflow: hidden;
+  }
+  footer .inner-container{
+    padding: 50px 0;
+  
+    text-align: center;
+    color: #ffffff;
+  }
+  .location-url a{
+    color: #ffffff;
+    
+    }
+    .location-url li {
+      margin-bottom: 10px;
+  }
+    .social-icons{
+      display: block;
+      list-style: none;
+    }
+    .social-icons li{
+      display: inline-block;
+    }
+    .social-icons img{
+      width: 33px;
+      height: auto;
+      margin: 2px;
+    }
+    
+    /* blog page css */
+    .blog-main{
+      background-color: #d1e6f8;
+      height: 400px;
+      text-align: center;
+    }
+    .sub-page-title{
+    font-size: 35px;
+    }
+  .sub-page-title ::after{
+  content: '';
+  display: block;
+  margin: 0.5rem auto 0 auto;
+  width: 100px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #008cff;
+  
+    }
+  .origin-post{
+   
+   display: block;
+   width: 70%;
+   float: left;
+   
+  }
+  .sidebar{
+   
+    display: block;
+    width: 30%;
+    
+    float: left;
+    padding-top: 30px;
+    
+   
+  }
+  .blog-feature h2::after{
+    content: '';
+  display: block;
+  margin: 0.5rem auto 0 auto;
+  width: 100px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #008cff;
+  margin-left: 0px;
+  }
+  
+  .item-post img{
+  height: 170px;
+  width: 165px;
+  
+  
+  }
+  .quick-post-link h2::after{
+    content: '';
+  display: block;
+  margin: 0.5rem auto 0 auto;
+  width: 100px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #008cff;
+  margin-left: 0px;
+    
+  }
+  body .navitem li.current-menu-item a {
+    color: red;
+}  
