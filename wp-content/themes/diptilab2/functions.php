@@ -294,3 +294,45 @@ if( function_exists('acf_add_options_page') ) {
 	));
 	
 }
+
+
+/**
+ * WordPress, show admin notices, required plugins for a theme
+ */
+
+add_action('admin_notices', 'showAdminMessages');
+
+function showAdminMessages()
+{
+    $plugin_messages = array();
+    $aRequired_plugins = array();
+
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+    $aRequired_plugins = array(
+                                array('name'=>'Advanced Custom Fields Pro', 'download'=>'http://wordpress.org/plugins/advanced-custom-fields/', 'path'=>'advanced-custom-fields/acf.php')
+    );
+
+    
+    foreach($aRequired_plugins as $aPlugin){
+        // Check if plugin exists
+        if(!is_plugin_active( $aPlugin['path'] ))
+        {
+            $plugin_messages[] = '!!This theme requires you to install the <b>'.$aPlugin['name'].'</b> plugin, download it from <a target="_blank" href="'.$aPlugin['download'].'">here</a>.!!';
+        }
+    }
+
+    if(count($plugin_messages) > 0)
+    {
+        echo '';
+
+            foreach($plugin_messages as $message)
+            {
+                echo ' <div style="background:red; color:#fff; padding:20px; box-sizing:border-box; max-width:90%;">'.$message.' </div>';
+            }
+
+        echo ' ';
+    }
+
+}
+
