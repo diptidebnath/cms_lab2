@@ -12,9 +12,7 @@ get_header();
         <div class="container">
             <div class="row">
                 <div id="primary" class="col-xs-12 col-md-8 col-md-offset-2">
-                    <?php
-                    the_archive_title('<h1 class="page-title">', '</h1>');
-                    ?>
+                <h1 class="page-title"><?php echo custom_get_the_archive_title();?></h1>
                     <div class="searchform-wrap">
                         <form id="searchform" class="searchform" action="<?php echo get_site_url(); ?>">
                             <div>
