@@ -96,24 +96,29 @@ register_sidebar(array(
 
 
 /* Remove “Category:”, “Tag:”, “Author:” from the_archive_title */
-add_filter('get_the_archive_title', function ($title) {
-	if (is_category()) {
-		$title = single_cat_title('', false);
-	} elseif (is_tag()) {
-		$title = single_tag_title('', false);
-	} elseif (is_author()) {
-		$title = '<span class="vcard">' . get_the_author() . '</span>';
-	} elseif (is_tax()) { //for custom post types
-		$title = sprintf(__('%1$s'), single_term_title('', false));
-	} elseif (is_post_type_archive()) {
-		$title = post_type_archive_title('', false);
-	} elseif (is_search()) {
-		$title = "Sökresultat för: " . get_search_query();
-	} else {
-		$title = "Blogg";
-	}
-	return $title;
-});
+function custom_get_the_archive_title(){
+	//add_filter('get_the_archive_title', function ($title) {
+		if (is_category()) {
+			$title = single_cat_title('', false);
+		} elseif (is_tag()) {
+			$title = single_tag_title('', false);
+		} elseif (is_author()) {
+			$title = '<span class="vcard">' . get_the_author() . '</span>';
+		} elseif (is_tax()) { //for custom post types
+			$title = sprintf(__('%1$s'), single_term_title('', false));
+		} elseif (is_post_type_archive()) {
+			$title = post_type_archive_title('', false);
+		} elseif (is_search()) {
+			$title = "Sökresultat för: " . get_search_query();
+		} 
+		else {
+			$title = "Blogg";
+		}
+		return $title;
+	//});
+}
+ 
+
 
 
 /*
@@ -210,9 +215,12 @@ function get_breadcrumb() {
 	echo '<li>Du är här: </li>';
     if (is_front_page()) {
         echo '<li><a href="'.home_url().'" rel="nofollow">Hem</a></li>';
-    }
+	}
+	if ( !is_front_page() && is_home() ) {
+		echo '<li><a href="'.get_post_type_archive_link( 'post' ).'" rel="nofollow">Blogg</a></li>';
+	  }
     if (is_single()) {
-        echo '<li><a href="blog.html">Blogg</a></li>
+        echo '<li><a href="'.get_post_type_archive_link( 'post' ).'">Blogg</a></li>
 	<li>/</li>';
     
             if (is_single()) {
@@ -231,6 +239,14 @@ function get_breadcrumb() {
         echo the_search_query();
 		echo "</li>";
 	}
+	elseif (is_archive()) {
+		echo '<li><a href="'.get_post_type_archive_link( 'post' ).'">Blogg</a></li>
+	<li>/</li>';
+		echo "<li>";
+		the_archive_title();
+		echo "</li>";
+	}
+
 	echo '</ul>';
 }
 

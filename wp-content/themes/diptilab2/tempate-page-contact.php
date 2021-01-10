@@ -7,32 +7,35 @@
 get_header();
 ?>
 <main>
-<section class="standard">
-        <div class="container">
-            <div class="row">
-                <div id="primary" class="col-xs-12">
-                    <?php if (have_posts()) {
-                        while (have_posts()) {
-                            the_post();
-                            the_title('<h1>', '</h1>');
-                            the_content();
-                        }
-                    } ?>
-                    <form>
-                        <label>Namn</label>
-                        <input type="text" />
-                        <label>E-post</label>
-                        <input type="email" />
-                        <label>Meddelande</label>
-                        <textarea></textarea>
-                        <input type="submit" value="Skicka" />
-                    </form>
-                </div>
+<?php
 
-            </div>
-        </div>
-        </div>
-    </section>
+// Check value exists.
+if( have_rows('content_for_contact_page') ):
+
+    // Loop through rows.
+    while ( have_rows('content_for_contact_page') ) : the_row();
+
+        // Case: hero_section.
+        if( get_row_layout() == 'hero_section' ):
+            get_template_part(('components/parts_hero_section_contact'));
+        
+          // Case: highlighted_section.
+          elseif( get_row_layout() == 'contact_section' ): 
+            get_template_part(('components/parts_contact_section'));
+
+        
+        endif;
+
+    // End loop.
+    endwhile;
+
+// No value.
+else :
+    // Do something...
+endif;
+    
+    ?>
+    
 </main>
 
 <?php
