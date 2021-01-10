@@ -236,4 +236,20 @@ function get_breadcrumb() {
 
 
 
+/**
+ * hide content section for homepage and flexiable content template
+ */
+
+add_action( 'admin_init', 'hide_editor' );
+ 
+function hide_editor() {
+    $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
+    if( !isset( $post_id ) ) return;
+ 
+    $template_file = get_post_meta($post_id, '_wp_page_template', true);
+     
+    if($template_file == 'template-flexible_content.php' || $template_file == 'template-home-page.php'){ // edit the template name
+        remove_post_type_support('page', 'editor');
+    }
+}
 				 

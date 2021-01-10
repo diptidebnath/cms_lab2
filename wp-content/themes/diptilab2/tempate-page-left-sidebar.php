@@ -7,7 +7,7 @@
 get_header();
 ?>
 <main>
-    <section>
+    <section class="standard">
         <div class="container">
             <div class="row">
                 <div id="primary" class="col-xs-12 col-md-9 col-md-push-3">
@@ -23,10 +23,31 @@ get_header();
 
 
                     <?php
+                    
+
+                    if (is_page() && $post->post_parent > 0) {
+                        // post has parents
+
+                        $parent_id = wp_get_post_parent_id($post->ID);
+                    } else {
+                        // post has no parents
+                        $parent_id = $post->ID;
+                    }
+
                     $children = wp_list_pages(array(
-                        'title_li' => '',
-                        'child_of' => $post->post_parent,
+                        'child_of' => $parent_id,
+                        'exclude' => $parent_id,
+                        'depth' => 1,
                         'echo' => false,
+                        'title_li' => '',
+                    ));
+
+                    $children = wp_list_pages(array(
+                        'child_of' => $post->post_parent,
+                        'exclude' => wp_get_post_parent_id($post->ID),
+                        'depth' => 1,
+                        'echo' => false,
+                        'title_li' => '',
                     ));
 
                     if ($children) : ?>
