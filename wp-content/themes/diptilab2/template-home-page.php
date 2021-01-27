@@ -43,9 +43,11 @@ if( have_rows('content_for_home_page') ):
             // Case: testimonial_sections.
         elseif( get_row_layout() == 'team_section' ): 
             get_template_part(('components/parts_team_section'));
+           
             // Case: testimonial_sections.
         elseif( get_row_layout() == 'carousel_section' ): 
             get_template_part(('components/parts_carousel_section'));
+           
         endif;
 
     // End loop.

@@ -310,7 +310,7 @@ function showAdminMessages()
     include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
     $aRequired_plugins = array(
-                                array('name'=>'Advanced Custom Fields Pro', 'download'=>'http://wordpress.org/plugins/advanced-custom-fields/', 'path'=>'advanced-custom-fields/acf.php')
+                                array('name'=>'Advanced Custom Fields Pro', 'download'=>'http://wordpress.org/plugins/advanced-custom-fields/', 'path'=>'advanced-custom-fields-pro/acf.php')
     );
 
     
